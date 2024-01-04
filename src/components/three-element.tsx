@@ -19,7 +19,7 @@ export default function ThreeElement() {
   // });
 
   // useFrame 으로 변경 가능한 값들은 Object3D 객체를 상속받은 것
-  useFrame((state, delta) => {
+  useFrame((_, delta) => {
     // 매 프레임마다 불리게 된다.
     // 동적인 동작이 필요한 경우에는 useFrame 에 정의가 필요하다.
     // delta 값은 프레임마다 변하므로 x 값이 누적되면서 돌아가는것 처럼 동작
