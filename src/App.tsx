@@ -2,7 +2,7 @@ import './App.css';
 import { Canvas } from '@react-three/fiber';
 import { ThreeElement } from './components';
 import { OrbitControls } from '@react-three/drei';
-import { useControls } from 'leva';
+// import { useControls } from 'leva';
 
 /**
  * Camera의 orthographic 값에는 fov 값이 존재하지 않고
@@ -13,13 +13,13 @@ import { useControls } from 'leva';
  * Math.PI * 2 = 360
  */
 function App() {
-  const color = useControls({
-    values: 'white',
-  });
+  // const color = useControls({
+  //   values: 'white',
+  // });
 
-  const grid = useControls({
-    segment: { value: 10, min: 2, max: 100, step: 1 },
-  });
+  // const grid = useControls({
+  //   segment: { value: 10, min: 2, max: 100, step: 1 },
+  // });
 
   return (
     <Canvas
@@ -29,10 +29,10 @@ function App() {
         near: 1,
         far: 100,
         fov: 75,
-        position: [3, 3, 0],
+        position: [5, 5, 5],
       }}
     >
-      <color attach='background' args={[color.values]} />
+      <color attach='background' args={['white']} />
       {/* 구조체의 마우스를 통한 컨트롤이 가능 */}
       <OrbitControls
         // x 축에 대한 마우스 컨틀롤 제한
@@ -44,7 +44,7 @@ function App() {
       />
       {/* 기본적 단위는 m 단위 */}
       <axesHelper args={[6]} />
-      <gridHelper args={[10, grid.segment]} />
+      <gridHelper args={[10, 10]} />
       <ThreeElement />
     </Canvas>
   );
