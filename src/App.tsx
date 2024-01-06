@@ -26,21 +26,18 @@ function App() {
       // orthographic
       camera={{
         // zoom: 100,
-        near: 1,
-        far: 100,
-        fov: 75,
         position: [5, 5, 5],
       }}
     >
       <color attach='background' args={['white']} />
       {/* 구조체의 마우스를 통한 컨트롤이 가능 */}
       <OrbitControls
-        // x 축에 대한 마우스 컨틀롤 제한
-        minAzimuthAngle={-Math.PI / 4}
-        maxAzimuthAngle={Math.PI / 4}
-        // y 축에 대한 마우스 컨트롤 제한
-        minPolarAngle={Math.PI / 6}
-        maxPolarAngle={Math.PI - Math.PI / 6}
+      // x 축에 대한 마우스 컨틀롤 제한
+      // minAzimuthAngle={-Math.PI / 4}
+      // maxAzimuthAngle={Math.PI / 4}
+      // y 축에 대한 마우스 컨트롤 제한
+      // minPolarAngle={Math.PI / 6}
+      // maxPolarAngle={Math.PI - Math.PI / 6}
       />
       {/* 기본적 단위는 m 단위 */}
       <axesHelper args={[6]} />
