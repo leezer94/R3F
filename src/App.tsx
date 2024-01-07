@@ -1,6 +1,6 @@
 import './App.css';
 import { Canvas } from '@react-three/fiber';
-import { ThreeElement } from './components';
+import { LightTest } from './components';
 import { OrbitControls } from '@react-three/drei';
 // import { useControls } from 'leva';
 
@@ -23,13 +23,14 @@ function App() {
 
   return (
     <Canvas
+      shadows
       // orthographic
       camera={{
         // zoom: 100,
         position: [5, 5, 5],
       }}
     >
-      <color attach='background' args={['white']} />
+      <color attach='background' args={['black']} />
       {/* 구조체의 마우스를 통한 컨트롤이 가능 */}
       <OrbitControls
       // x 축에 대한 마우스 컨틀롤 제한
@@ -40,9 +41,10 @@ function App() {
       // maxPolarAngle={Math.PI - Math.PI / 6}
       />
       {/* 기본적 단위는 m 단위 */}
-      <axesHelper args={[6]} />
-      <gridHelper args={[10, 10]} />
-      <ThreeElement />
+      {/* <axesHelper args={[6]} /> */}
+      {/* <gridHelper args={[10, 10]} /> */}
+      {/* <MaterialTest /> */}
+      <LightTest />
     </Canvas>
   );
 }
