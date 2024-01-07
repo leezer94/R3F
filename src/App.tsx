@@ -1,6 +1,6 @@
 import './App.css';
 import { Canvas } from '@react-three/fiber';
-import { LightTest } from './components';
+import { InteractionTest } from './components';
 import { OrbitControls } from '@react-three/drei';
 // import { useControls } from 'leva';
 
@@ -41,10 +41,11 @@ function App() {
       // maxPolarAngle={Math.PI - Math.PI / 6}
       />
       {/* 기본적 단위는 m 단위 */}
-      {/* <axesHelper args={[6]} /> */}
-      {/* <gridHelper args={[10, 10]} /> */}
+      <axesHelper args={[6]} />
+      <gridHelper args={[10, 10]} />
       {/* <MaterialTest /> */}
-      <LightTest />
+      {/* <LightTest /> */}
+      <InteractionTest />
     </Canvas>
   );
 }
