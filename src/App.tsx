@@ -23,6 +23,7 @@ function App() {
 
   return (
     <Canvas
+      shadows
       // orthographic
       camera={{
         // zoom: 100,

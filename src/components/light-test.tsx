@@ -1,7 +1,7 @@
 // import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import { useEffect, useRef } from 'react';
-import { Environment, useHelper } from '@react-three/drei';
+import { useHelper } from '@react-three/drei';
 
 // import MatCap_1 from '../../public/images/matcap_1.png';
 // import MatCap_2 from '../../public/images/matcap_2.png';
@@ -49,14 +49,26 @@ export default function LightTest() {
       {/* <hemisphereLight args={['blue', 'yellow', 5]} /> */}
 
       {/* <directionalLight
+        castShadow
+        shadow-camera-top={10}
+        shadow-camera-bottom={-10}
+        shadow-camera-left={-10}
+        shadow-camera-right={10}
+        shadow-mapSize={[512, 512]}
         ref={directionalLightRef}
         color='#fff'
         position={[0, 5, 0]}
         intensity={5}
         target-position={[0, 0, 2]}
       /> */}
-
-      {/* <pointLight
+      {/* 
+      <pointLight
+        castShadow
+        shadow-camera-top={10}
+        shadow-camera-bottom={-10}
+        shadow-camera-left={-10}
+        shadow-camera-right={10}
+        shadow-mapSize={[512, 512]}
         color='#fff'
         position={[0, 0, 2]}
         intensity={50}
@@ -64,6 +76,12 @@ export default function LightTest() {
       /> */}
 
       <spotLight
+        castShadow
+        shadow-camera-top={10}
+        shadow-camera-bottom={-10}
+        shadow-camera-left={-10}
+        shadow-camera-right={10}
+        shadow-mapSize={[512, 512]}
         ref={spotLightRef}
         color='#fff'
         position={[0, 5, 0]}
@@ -74,13 +92,17 @@ export default function LightTest() {
         penumbra={0.5}
       />
 
-      <Environment
+      {/* <Environment
         files='../../public/images/paris-eiffel.hdr'
         background
         blur={0}
-      />
+      /> */}
 
-      <mesh rotation-x={THREE.MathUtils.degToRad(-90)} position-y={-1}>
+      <mesh
+        rotation-x={THREE.MathUtils.degToRad(-90)}
+        position-y={-1}
+        receiveShadow
+      >
         <planeGeometry args={[15, 15]} />
         <meshStandardMaterial color='#020059' side={THREE.DoubleSide} />
       </mesh>
@@ -91,7 +113,7 @@ export default function LightTest() {
       </mesh>
 
       <group ref={groupRef} position={[0, 0, 0]}>
-        <mesh>
+        <mesh castShadow receiveShadow>
           <meshLambertMaterial
             color='red'
             visible={true}
@@ -106,7 +128,7 @@ export default function LightTest() {
           />
         </mesh>
 
-        <mesh>
+        <mesh castShadow receiveShadow>
           <meshPhongMaterial
             color='red'
             visible={true}
@@ -124,7 +146,7 @@ export default function LightTest() {
           />
         </mesh>
 
-        <mesh>
+        <mesh castShadow receiveShadow>
           <meshStandardMaterial
             color='red'
             visible={true}
@@ -140,7 +162,7 @@ export default function LightTest() {
             metalness={0}
           />
         </mesh>
-        {/* <mesh>
+        {/* <mesh castShadow receiveShadow>
           <meshPhysicalMaterial
             color='#fff'
             visible={true}
@@ -161,7 +183,7 @@ export default function LightTest() {
             ior={2.33}
           />
         </mesh> */}
-        <mesh>
+        <mesh castShadow receiveShadow>
           <meshToonMaterial />
         </mesh>
       </group>
